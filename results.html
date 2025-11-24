@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Recommendations</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Results for "{{ song }}"</h1>
+
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if results %}
+      <ul class="results">
+        {% for item in results %}
+          {% if item.track_name %}
+            <li>🎵 <strong>{{ item.track_name }}</strong> — {{ item.artist }}</li>
+          {% else %}
+            <li>🎵 <strong>{{ item['track_name'] }}</strong> — {{ item['artist'] }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No results found for this song. Try another one.</p>
+    {% endif %}
+
+    <a href="/" class="back">⬅ Back</a>
+  </div>
+</body>
+</html>
