@@ -8,7 +8,68 @@
 </head>
 <body>
   <div class="page">
+    <header class="topbar"><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Music Recommender</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="page">
     <header class="topbar">
+      <div class="brand">🎶 Music Recommender</div>
+      <div class="subtitle">Find songs similar to your favorites — optimized for large datasets</div>
+    </header>
+
+    <main class="card">
+      <form id="searchForm" action="/recommend" method="post">
+        <div class="row">
+          <input id="songInput" name="song" type="text" placeholder="Start typing song name..." autocomplete="off" />
+          <button class="btn" type="submit">Recommend</button>
+        </div>
+
+        <div class="controls">
+          <label class="control-inline">
+            <input type="checkbox" name="filter_genre" value="Hindi" /> Hindi
+          </label>
+          <label class="control-inline">
+            <input type="checkbox" name="filter_genre" value="Rap" /> Rap
+          </label>
+          <label class="control-inline">
+            <input type="checkbox" name="filter_genre" value="Punjabi" /> Punjabi
+          </label>
+          
+          </label>
+
+          <label class="control-right">
+            Results:
+            <select id="topK" name="top_k">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="20">20</option>
+            </select>
+          </label>
+        </div>
+      </form>
+
+      <div id="suggestions" class="suggestions" aria-hidden="true"></div>
+      <div id="suggestions" class="suggestions"></div>
+
+    </main>
+
+    <footer class="foot">
+      Tip: use partial names — autocomplete helps. You can filter by genre.
+    </footer>
+  </div>
+
+  <script src="/static/search.js"></script>
+  
+
+</body>
+</html>
+
       <div class="brand">🎶 Music Recommender</div>
       <div class="subtitle">Find songs similar to your favorites — optimized for large datasets</div>
     </header>
